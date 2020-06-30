@@ -15,7 +15,7 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    
+
     print('Hello! Let\'s explore some US bikeshare data!\n')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     cities = ['chicago', 'new york city', 'washington']
@@ -73,22 +73,22 @@ def load_data(city, month, day):
 
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
-    df['day_of_week'] = df['Start Time'].dt.weekday_name
+    df['day'] = df['Start Time'].dt.weekday_name
 
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
-    
+
         # filter by month to create the new dataframe
-        df = df[df['month'] == month] 
+        df = df[df['month'] == month]
 
     # filter by day of week if applicable
     if day != 'all':
         # filter by day of week to create the new dataframe
-        df = df[df['day_of_week'] == day.title()]
-    
+        df = df[df['day'] == day.title()]
+
     return df
 
 
@@ -103,8 +103,8 @@ def time_stats(df):
     print("The most common month is:", popular_month)
 
     # TO DO: display the most common day of week
-    popular_day_of_week = df['day_of_week'].mode()[0]
-    print("The most common day of week is:", popular_day_of_week)
+    popular_day = df['day'].mode()[0]
+    print("The most common day of week is:", popular_day)
 
     # TO DO: display the most common start hour
     df['Start Time'] = pd.to_datetime(df['Start Time'])
@@ -162,14 +162,14 @@ def user_stats(df, city):
     start_time = time.time()
 
     # TO DO: Display counts of user types
-    user_types = df['User Type'].value_counts() 
+    user_types = df['User Type'].value_counts()
     print('Counts of user types:')
     print(user_types)
 
     # Avoid throwing an error for Washington data
     if (city != "washington"):
         # TO DO: Display counts of gender
-        gender = df['Gender'].value_counts() 
+        gender = df['Gender'].value_counts()
         print('Counts of gender:')
         print(gender)
 
@@ -184,7 +184,7 @@ def user_stats(df, city):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-    
+
 def raw_data(df):
     """Displays raw data upon user prompt."""
 
@@ -195,7 +195,7 @@ def raw_data(df):
         count = count+5
         answer = input('\nDo you want to see next 5 rows of the raw data? (yes or no)\n')
     print('-'*40)
-    
+
 
 def main():
     while True:
@@ -212,6 +212,6 @@ def main():
         if restart.lower() != 'yes':
             break
 
-            
+
 if __name__ == "__main__":
 	main()
