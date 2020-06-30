@@ -25,7 +25,7 @@ def get_filters():
         if (city in cities):
             break
         else:
-            print("The city you entered is invalid. Try again")
+            print("The city you entered is invalid. Please try again:")
 
     # TO DO: get user input for month (all, january, february, ... , june)
     months = ['all', 'january', 'february', 'march', 'april', 'may', 'june']
@@ -35,7 +35,7 @@ def get_filters():
         if (month in months):
             break
         else:
-            print("Input is invalid. Try again")
+            print("Input is invalid. Please try again:")
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     days = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
@@ -45,10 +45,11 @@ def get_filters():
         if (day in days):
             break
         else:
-            print("Input is invalid. Try again")
+            print("Input is invalid. Please try again:")
 
     print("Data for", city.title(), "will be displayed with filter month =", month, ", day =", day, ".If this is not true, restart the program now.\n")
     print('-'*40)
+
     return city, month, day
 
 
