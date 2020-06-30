@@ -5,10 +5,10 @@ This file was created on June 30, 2020
 Post Your Work on GitHub
 
 ### Description
-Describe what your project is about and what it does
+This project is to put what I've learned about version control and GitHub into practice.
 
 ### Files used
-Include the files used
+`bikeshare.py`, and some dataset files.s
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
